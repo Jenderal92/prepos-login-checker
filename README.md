@@ -15,6 +15,8 @@ Python 2.7
 <li>Buymeacoffee $: https://www.buymeacoffee.com/shin.code</li>
 <li>Ko-Fi $: https://ko-fi.com/shincode403</li>
 
+![Untitled228](https://github.com/user-attachments/assets/06243037-8627-4f34-84e3-71da15041c7e)
+
 
 # How To Run?
 
